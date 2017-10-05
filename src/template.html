@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><%=htmlWebpackPlugin.options.title || 'Webpack App'%></title>
+	<script>
+    var winWidth = window.innerWidth;
+    var winHeight = window.innerHeight;
+    var perRemPx = document.getElementsByTagName("html")[0].clientWidth / 10;
+    window.addEventListener("resize", function() {
+        perRemPx = document.getElementsByTagName("html")[0].clientWidth / 10;
+        document.getElementsByTagName("html")[0].style.fontSize = perRemPx + "px";
+    });
+    document.getElementsByTagName("html")[0].style.fontSize = perRemPx + "px";
+    function disableScroll(){
+        document.addEventListener("touchstart", disabledScroll);
+        document.addEventListener("touchend", disabledScroll);
+        document.addEventListener("touchmove", disabledScroll);
+    }
+
+    function enableScroll(){
+        document.removeEventListener("touchstart", disabledScroll);
+        document.removeEventListener("touchend", disabledScroll);
+        document.removeEventListener("touchmove", disabledScroll);
+    }
+    function disabledScroll(event){
+        event.preventDefault();
+    }
+	</script>
+</head>
+<body >
+
+    <div class="page" id="page1">
+        <div class="background1"></div>
+        <div class="title"></div>
+        <div class="float lip"></div>
+        <div class="float perfume"></div>
+        <div class="float skateboard"></div>
+        <div class="float tshirt"></div>
+        <div class="float headphone"></div>
+        <div class="float watch"></div>
+        <div class="float handring"></div>
+        <div class="float camera"></div>
+        <div class="float lipstick"></div>
+        <div class="float glasses"></div>
+        <div class="float ball1"></div>
+        <div class="float ball2"></div>
+        <div class="float ball3"></div>
+        <div class="float ball4"></div>
+        <div class="background2"></div>
+    </div>
+    <div class="page" id="page2" isloaded ="false">
+        <div class="background3"><img data-src="../res/page2/background3.png" src=""></div>
+        <div class="activity1"><img data-src="../res/page2/activity1.png"></div>
+        <div class="activity2"><img data-src="../res/page2/activity2.png"></div>
+        <div class="activity3"><img data-src="../res/page2/activity3.png"></div>
+        <div class="activity4"><img data-src="../res/page2/activity4.png"></div>
+        <div class="activity5"><img data-src="../res/page2/activity5.png"></div>
+        <div class="activity6"><img data-src="../res/page2/activity6.png"></div>
+        <div class="activity7"><img data-src="../res/page2/activity7.png"></div>
+        <div class="pullDown"><img data-src="../res/page2/pullDown.png"></div>
+    </div>
+    <div class="page" id="page3">
+        <video  id="video" class="video" preload="auto" playsinline src="..\res\page3\superfestival.mp4" type="video/mp4"></video>
+        </div>
+    <div class="page" id="page4">4</div>
+    <div class="page" id="page5">5</div>
+    <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+    <script src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+    <% } %>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{
+  "name": "guide_1111",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mantutu/guide_1111.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mantutu/guide_1111/issues"
+  },
+  "homepage": "https://github.com/mantutu/guide_1111#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-latest": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "exports-loader": "^0.6.4",
+    "file-loader": "^1.1.4",
+    "html-webpack-plugin": "^2.30.1",
+    "script-loader": "^0.7.2",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1",
+    "zepto": "^1.2.0"
+  },
+  "module": {
+    "loaders": [
+      {
+        "test": "require.resolve('zepto')",
+        "loader": "exports-loader?window.Zepto!script-loader"
+      }
+    ]
+  }
+}
